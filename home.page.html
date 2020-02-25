@@ -1,0 +1,86 @@
+<ion-content>
+  <div style='width:100vw;display:flex;justify-content: center;'>
+    <div class="wholething" style="overflow-x:scroll">
+      <div class="left">
+        <div class="imageHouse">
+          <div class="image1">
+            <img src="http://www.romantika2u.com/image/cache/Company%20Logo/header-logo-295x127-295x127.jpg" alt=""
+              class="image">
+          </div>
+        </div>
+        <div class="allButtons">
+          <div class="shipbuttons" [ngClass]="title == 'Shipments'? 'selectorx' : 'selector' "
+            (click)="title = 'Shipments'">IN/OUT</div>
+          <div class="branchbuttons" [ngClass]="title == 'Branch'? 'selectorx' : 'selector' " (click)='toBranch()'>
+            B TO B</div>
+          <div class="dispactchbuttons" [ngClass]="title == 'Dispatch'? 'selectorx' : 'selector' "
+            (click)='toDispatch()'>Branch</div>
+          <div class="logoutbuttons" [ngClass]="title == 'Report'? 'selectorx' : 'selector' "
+            (click)="toReport()">Report</div>
+          <div class="logoutbuttons" [ngClass]="title == 'Log Out'? 'selectorx' : 'selector' "
+            (click)="title = 'Log Out'">Users</div>
+          <div class="logoutbuttons" [ngClass]="title == 'Log Out'? 'selectorx' : 'selector' "
+            (click)="title = 'Log Out'">Log Out</div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="topper">
+          <!-- <div class="searchBox">
+            <ion-item style="font-size:large;">
+              <ion-input [(ngModel)]='keyword' type="text" placeholder="Search..."></ion-input>
+            </ion-item>
+          </div> -->
+          <!-- <div class="searchButton">
+            <ion-icon name="search-outline" style="font-size: 30px;"></ion-icon>
+          </div> -->
+          <div class="title" style="text-align: center;color: white;width: 700px;display: flex;justify-content: center;align-items: center;font-size: 30px;">
+            IN/OUT
+          </div>
+          <div class="addButton">
+            <ion-icon name="add-outline" (click)="addshipment()"></ion-icon>
+          </div>
+        </div>
+        <div class="shipmentBox" >
+          <div class="branchBox" *ngFor="let item of sorting(shipmentList)" (click)="toShipmentDetail(item['key'])">
+            <div class="idBox" style="display: flex; flex-direction: column;">
+              <div class="id" style="font-weight: 800;"> Shipment ID :</div>
+              <div class="data">{{item['shipID']}}</div>
+
+            </div>
+            <div class="etaDate">
+              <div class="etaBox" style="display: flex; flex-direction: column;">
+                <div class="etaDate" style="font-weight: 800;">Order Date :</div>
+                <div class="data">{{item['OrderDate']  | date: 'dd MMM yyyy'    }}</div>
+
+              </div>
+
+            </div>
+            <div class="dispatchDate">
+              <div class="etaBox" style="display: flex; flex-direction: column;">
+                <div class="etaDate" style="font-weight: 800;">Received Date:</div>
+                <div class="data">{{item['Received'] | date: 'dd MMM yyyy'}}</div>
+
+              </div>
+
+            </div>
+            <div class="dueDate">
+              <div class="dueBox" style="display: flex; flex-direction: column;">
+                <div class="dueDate" style="font-weight: 800;">From : </div>
+                <div class="data">{{item['From']}}</div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</ion-content>

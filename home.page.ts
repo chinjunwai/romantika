@@ -1,82 +1,71 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NavController } from '@ionic/angular';
+import * as firebase from 'firebase'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  shipments=['x','y','z']
-
-  highlights=[];
-  counter = 0;
-  countHighlight=0;
-  activatehighlight=false;
-  ngOnInit(){
-
+  title = ""
+  constructor(public navCtrl: NavController) { }
+  ngOnInit() {
+    this.readShipments()
   }
-  cancel(){
-    this.highlights=[];
-    this.activatehighlight=false;
+  ionViewWillEnter() {
+    this.title = 'Shipments'
   }
 
-  checkhighlight(i){
-    return this.highlights.indexOf(i)>-1;
-  }
+  
 
-  highlight(i){
+  sorting(array){
 
-    if(this.checkhighlight(i)==false){
-      this.highlights.push(i);
-    }else{
-      this.highlights.splice(this.highlights.indexOf(i),1);
-    }
+    let holder = [];
 
-    console.log(this.highlights)
-
-  }
-
-  highlight_pre(i){
-
-    if(this.activatehighlight==true){
-      if(this.checkhighlight(i)==false){
-        this.highlights.push(i);
-        this.counter +=1;
-      }else{
-        this.highlights.splice(this.highlights.indexOf(i),1);
-        this.counter -=1
+    array.forEach(element => {
+      if((element.shipID).includes(this.keyword)){
+        holder.push(element);
       }
-    }
 
-    
-
-    console.log(this.highlights)
-
-  }
-  activeHighlight(){
-    this.countHighlight +=1;
-    console.log(this.countHighlight)
-    if(this.countHighlight % 2 != 0){
-      this.activatehighlight = true;
-    }
-    else{
-      this.activatehighlight = false;
-      this.counter = 0
-    }
-  }
-
-  constructor() {}
-  onPress($event) {
-    console.log("onPress", $event);
-}
-  onPressUp($event) {
-  console.log("onPressUp", $event);
-}
-  countSelected(){
-    this.counter = 0
-    this.highlights.forEach(element => {
-      this.counter++;    
     });
+//console.log(holder[0].key)
+    return holder;
+  }
+
+  keyword="";
+  array = []
+  shipmentList = []
+  readShipments() {
+    firebase.database().ref('Shipment/').on('value', data => {
+      this.array = []
+      this.shipmentList = []
+      let array = data.val()
+      for (let key in array) {
+        
+        let obj = array[key]
+        obj.key = key
+        console.log(obj.key)
+        this.shipmentList.push(obj)
+        console.log(this.shipmentList)
+      } 
+    })
+  }
+  toBranch() {
+    this.title = "Branch"
+    this.navCtrl.navigateForward('branch')
+  }
+  addshipment(){
+    this.navCtrl.navigateForward('addshipment')
+  }
+  toShipmentDetail(x){
+    console.log(x)
+    this.navCtrl.navigateForward('shipmentdetails/' + x)
+  }
+  toDispatch(){
+    this.navCtrl.navigateForward('dispatch')
+  }
+  toReport(){
+    this.title = "Report"
+    this.navCtrl.navigateForward('report')
   }
 }
