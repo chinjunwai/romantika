@@ -1,0 +1,41 @@
+<ion-content style='--background:rgba(126, 56, 255,.5)'>
+  <img style='width:100vw;height:100vh;object-fit: cover;position: fixed;z-index: -100;' src="https://thumbs.gfycat.com/JitteryOfficialHoopoe-size_restricted.gif" alt="">
+  <div style="display: flex;align-items: center;justify-content: center;width: 100vw;">
+    <div class="whole" style="width: 1000px;display: flex;justify-content: center;height: 800px;">
+
+      <div class="wholePage">
+
+        <!-- <div class="top">
+          <div class="title">ADMIN LOGIN</div>
+        </div> -->
+       
+        <div class="content">
+          <img class="logo"  src="http://www.romantika2u.com/image/cache/Company%20Logo/header-logo-295x127-295x127.jpg" alt="">
+          <div class="keyIn">
+            <div class="input">
+              <ion-item style='--background:rgba(0,0,0,0)' lines='none'>
+                <ion-label position="floating">Admin Email</ion-label>
+                <ion-input [(ngModel)]="admin.admail" ></ion-input>
+              </ion-item>
+            </div>
+            <div class="input">
+              <ion-item style='--background:rgba(0,0,0,0)' lines='none'>
+                <ion-label position="floating">Admin Password</ion-label>
+                <ion-input type="password" [(ngModel)]="admin.adpass" (keyup.enter)="login()" ></ion-input>
+              </ion-item>
+          </div>
+        </div>
+
+          <div class="login">
+            <ion-button class="log" (click)="login()" shape="round">Login</ion-button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<div class="load" *ngIf = "loading == true">
+  <img class="loading" src="https://assets.materialup.com/uploads/d897134f-48d1-4302-b3fd-ea045f3d4151/preview.gif" alt="">
+</div>
