@@ -1,10 +1,125 @@
-.shipmenth{
-  background-color: violet !important;
+  
+.wholePage{
+  width: 800px;
+  
+  overflow-x: scroll;
 }
-.--color-checked{
-  color: black !important;
+.title{
+  display: flex;
+  width: 800px;
+  text-align: center;
+  justify-content: space-between;
+  background-color: #6818d6;
+  padding: 15px;
 }
-.iconSelect{
- background-color: #6818d6;
- border: 2px solid #1a1a1a;
+.title{
+  font-size: 16px;
+  display: flex;
+  color: white;
+}
+.back{
+  display: flex;
+  font-size: 20px;
+  color: white;
+}
+.keyIn{
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input{
+  margin-left: 15px;
+  display: flex;
+  align-items: center;;
+  padding-bottom: 5px;
+  margin-top: 10px;
+}
+.input2{
+  margin-left: 15px;
+  display: flex;
+  align-items: center;;
+}
+.input3{
+  margin-left: 15px;
+  display: flex;
+  align-items: center;;
+}
+.input4{
+  margin-left: 15px;
+  display: flex;
+  align-items: center;;
+}
+.input5{
+  margin-left: 15px;
+  display: flex;
+  align-items: center;;
+}
+.key{
+  margin-left: 10px;
+  width: 200px;
+}
+.key2{
+  margin-left: 10px;
+  width: 200px;
+}
+.key3{
+  margin-left: 10px;
+  width: 200px;
+}
+.key4{
+  margin-left: 10px;
+  width: 200px;
+}
+.key5{
+  margin-left: 10px;
+  width: 200px;
+}
+.content{
+  width: 800px;
+  background-color: rgb(236, 236, 236);
+}
+.txt{
+  padding-right: 5px;
+  color: #1a1a1a;
+  font-size: 15px;
+}
+.upload{
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.upB{
+  margin: 5px;
+  margin-right: 10px;
+}
+.button{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  margin: 10px;
+}
+.in{
+  color: #1a1a1a;
+  width: 125px;
+}
+.in2{
+  color: #1a1a1a;
+  width: 125px;}
+.in3{
+  color: #1a1a1a;
+  width: 125px;}
+.in4{
+  color: #1a1a1a;
+  width: 125px;}
+.in5{
+  color: #1a1a1a;
+  width: 125px;}
+.conf{
+  --background: #18d668;
+}
+.cancel{
+  --background: red;
 }

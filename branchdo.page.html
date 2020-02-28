@@ -1,0 +1,83 @@
+<ion-content>
+
+  <div style="display: flex;align-items: center;justify-content: center;width: 100vw;overflow-x: scroll;">
+    <div class="wholething" style="width: 1000px;height: 800px;display: flex;" >
+      <div class="mostL"
+        style="width: 100px;display: flex;flex-direction: column;background-color:#6818d6;height: 800px;">
+        <div class="imageHouse" style="background-color:#6818d6;height: 80px;display: flex;align-items: center;justify-content: center;">
+          <img src="http://www.romantika2u.com/image/cache/Company%20Logo/header-logo-295x127-295x127.jpg" alt=""
+            style="border-radius:100%;padding: 10px;width: 100px;height: 100px;object-fit: contain;">
+        </div>
+        <div class="name"
+          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 15px;color: white;padding: 10px;margin-top: 15px;">
+          Romantika
+        </div>
+        <div class="blank"
+          style="height: 40px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;background-color:#6818d6;">
+
+        </div>
+        <div 
+          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;">
+          <ion-icon name="boat-outline" style="font-size: 30px;"></ion-icon>
+        </div>
+        <div class="branchIcon"
+          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px;">
+          <ion-icon name="business" style="font-size: 30px;"></ion-icon>
+        </div>
+        <div class="containerIcon" [ngClass]="title == 'branchdo'? 'iconSelect':''"
+        style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px">
+        <ion-icon name="newspaper-outline" style="font-size: 30px;"></ion-icon>     
+       </div>
+        <div class="containerIcon"
+          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px">
+          <ion-icon name="notifications-outline" style="font-size: 30px;"></ion-icon>
+        </div>
+        <div class="logoutIcon"
+          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px;height: calc( 800px - 70px - (5 * 60px));display: flex;align-items: flex-end;">
+          <ion-icon name="log-out-outline" (click)="close()" style="font-size: 30px;margin-bottom: 35px;"></ion-icon>
+        </div>
+
+      </div>
+      <div class="middle" style="width: 700px;background-color: white;height: 800px;">
+        <div class="topM"
+         style="height: 70px;padding: 10px;display: flex;align-items: center;justify-content: space-between;">
+          <ion-icon name="arrow-back-outline" style="font-size: 24px;" (click)="dos()"></ion-icon>
+          <ion-searchbar class="sb" style="width: 200px;" [(ngModel)] = "keyword"></ion-searchbar>
+        </div>
+
+        <div class="middleM" 
+        style="width: 700px;display: flex;height:70px;display: flex;align-items: center;padding: 10px;justify-content: center;">
+          
+          <div class="title" style="padding: 10px;width: 150px;font-size: 20px;">
+          {{bID}} DOs
+          </div>
+        
+        </div>
+        <div  class="shipmentBox" style="width: 700px;display: flex;max-height: 660px;flex-direction: column;overflow-y: scroll;">
+
+          <div *ngFor='let eve of search(obj2arr(view));' (click)="rep(eve)" class="details" style='width:calc( 100% - 20px );cursor: pointer;margin:10px;border: 1px solid grey;padding: 15px;'>
+              <div class="txt">{{eve.DOid}} </div>
+              <div class="txt" style='border:1px solid #eeeeee;padding-top: 10px;'>Total Carton :{{eve.carton}}  </div>
+
+              <div class="txt" style='border:1px solid #eeeeee;padding-top: 10px;display: flex;' *ngIf="eve.status == 'Pending'">Status :  
+               <div *ngIf="eve.status == 'Pending'"> {{eve.status}} </div>
+              </div>
+              <div class="txt" style='border:1px solid #eeeeee;padding-top: 10px;display: flex;'*ngIf="eve.status == 'Completed'">Status :  
+                <div *ngIf="eve.status == 'Completed'" style="color: green;"> {{eve.status}} </div>
+               </div>
+               <div class="txt" style='border:1px solid #eeeeee;padding-top: 10px;display: flex;'*ngIf="eve.status == 'Incomplete'">Status :  
+                <div *ngIf="eve.status == 'Incomplete'" style="color: red;"> {{eve.status}} </div>
+               </div>
+             
+          </div>
+ 
+        </div>
+      </div>
+
+      <div class="mostR" style="width: 200px;background-color: #6818d6;height: 800px;">
+
+      </div>
+    </div>
+  </div>
+
+</ion-content>

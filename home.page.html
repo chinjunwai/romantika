@@ -1,159 +1,75 @@
 <ion-content>
   <div style="display: flex;align-items: center;justify-content: center;width: 100vw;">
-    <div class="wholething" style="width: 1000px;height: 800px;display: flex;overflow-x: scroll;" >
-      <div class="mostL"
-        style="width: 100px;display: flex;flex-direction: column;background-color:blueviolet;height: 800px;">
-        <div class="imageHouse" style="background-color:blueviolet;height: 80px;display: flex;align-items: center;justify-content: center;">
-          <img src="http://www.romantika2u.com/image/cache/Company%20Logo/header-logo-295x127-295x127.jpg" alt=""
-            style="border-radius:100%;padding: 10px;width: 100px;height: 100px;object-fit: contain;">
-        </div>
-        <div class="name"
-          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 15px;color: white;padding: 10px;margin-top: 15px;">
-          Romantika
-        </div>
-        <div class="blank"
-          style="height: 40px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;background-color:blueviolet;">
 
-        </div>
-        <div [ngClass]="title == 'shipments'? 'iconSelect':''"
-          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;">
-          <ion-icon name="boat-outline" style="font-size: 30px;"></ion-icon>
-        </div>
-        <div class="branchIcon"
-          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px;">
-          <ion-icon name="business" style="font-size: 30px;"></ion-icon>
-        </div>
-        <div class="containerIcon"
-        style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px">
-        <ion-icon name="newspaper-outline" style="font-size: 30px;"></ion-icon>     
-       </div>
-        <div class="containerIcon"
-          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px">
-          <ion-icon name="cube-outline" style="font-size: 30px;"></ion-icon>
-        </div>
-        <div class="logoutIcon"
-          style="height: 60px;display: flex;align-items: center;justify-content: center;font-size: 20px;color: white;padding: 10px;margin-top: 10px;height: calc( 800px - 70px - (5 * 60px));display: flex;align-items: flex-end;">
-          <ion-icon name="log-out-outline" style="font-size: 30px;margin-bottom: 35px;"></ion-icon>
-        </div>
+  <div style="width:1000px; height:800px ;display: flex;justify-content: center;">
 
+    <div class="WholePage">
+
+      <div class="title">
+        <div class="">NEW SHIPMENT</div>
+        <ion-icon class="back" (click)="close()" name="close-outline"></ion-icon>
       </div>
-      <div class="middle" style="width: 700px;background-color: white;height: 800px;">
-        <div class="topM" style="height: 70px;padding: 10px;display: flex;align-items: center;">
-          <div class="sortingButton" style="display: flex;padding: 10px;;height:40px;width: 400px;">
-          <ion-radio-group style="display: flex;" value="all">
-            <div class="radio1"
-              style="display: flex;flex-direction: row-reverse;align-items: center;width: 50px;">
-              <div class="label" style="width: 30px;display: flex;align-items: center;justify-content: flex-end;">
-                All
-              </div>
-              <ion-radio slot="start" value="all" color="primary"></ion-radio>
-            </div>
-            <div class="radio2"
-              style="margin-left: 20px;display: flex;flex-direction: row-reverse;align-items: center;">
-              <div class="label" style="width: 80px;display: flex;align-items: center;justify-content: flex-end;">
-                Incoming
-              </div>
-              <ion-radio slot="start" value="incoming" color="primary"></ion-radio>
-            </div>
-          </ion-radio-group>
+
+      <div class="content">
+        <div class="keyIn">
+          <div class="input">
+            <div class="in2">Container ID:</div>
+            <ion-input class="key2" placeholder="  Container ID" [(ngModel)]="ship['conID']"></ion-input>
           </div>
-          <div class="searchBox" style="width: 380px;display: flex;border-radius: 10px;">
-            <div class="textBox" style="width: 300px;">
-              <ion-input type="text" placeholder="Search Here....." style="background-color: white;" ></ion-input>
-            </div>
-            <div class="searchIcon"
-              style="display: flex;align-items: center;justify-content: center;width: 60px;background-color: white;">
-              <ion-icon name="search-outline" style="font-size: 30px;"></ion-icon>
-            </div>
+          <div class="input2">
+            <div class="in">Shipment ID:</div>
+            <ion-input class="key" placeholder="  Shipment ID" [(ngModel)]="ship['shipID']"></ion-input>
+          </div>
+          <div class="input2">
+            <div class="in2">Order Date:</div>
+            <ion-datetime class="key2" displayFormat="DD MM YYYY" placeholder="Select Order Date" max="2050-12-31"
+              [(ngModel)]="ship['OrderDate']"></ion-datetime>
+          </div>
+          <div class="input3">
+            <div class="in3">ETA Date:</div>
+            <ion-datetime class="key3" displayFormat="DD MM YYYY" placeholder="Select ETA Date" max="2050-12-31"
+              [(ngModel)]="ship['ETA']"></ion-datetime>
+          </div>
+          <div class="input4">
+            <div class="in4">Due Date:</div>
+            <ion-datetime class="key4" displayFormat="DD MM YYYY" placeholder="Select Due Date" max="2050-12-31"
+              [(ngModel)]="ship['DueDate']"></ion-datetime>
           </div>
         </div>
-        <div class="middleM"
-          style="width: 700px;display: flex;height:70px;display: flex;align-items: center;padding: 10px;">
-          <div class="title" style="padding: 10px;width: 150px;font-size: 20px;">
-            Shipments
-          </div>
-          <div class="multiple"
-            style="display: flex;align-items: center;width:300px;justify-content: center;height: 70px;">
-            <div class="radio" style="width: 40px;display: flex;align-items: center;justify-content: center;">
-              <ion-checkbox (ionChange)="activeHighlight($event);" [(ngModel)]='multiples' ></ion-checkbox>
-            </div>
-            <div class="selectM"
-              style="width: 150;display: flex;justify-content: center;align-items: center;height: 20px;margin-right: 10px;">
-              Select Multiple
-            </div>
-          </div>
-          <div class="sortingShipment" style="width: 350px;">
-            <div class="sortingBox">
-              <ion-item >
-                <ion-label>From</ion-label>
-                <ion-select placeholder="Select One" style="width: 300px;">
-                  <ion-select-option value="oldest">Oldest to Latest</ion-select-option>
-                  <ion-select-option value="latest">Lastest to Oldest</ion-select-option>
-                </ion-select>
-              </ion-item>
 
-            </div>
+        <div class="button">
+          <div class="cancel">
+            <ion-button class="cancel" (click)="close()" shape="round"> Cancel</ion-button>
           </div>
-
-        </div>
-        <div  class="shipmentBox" style="width: 700px;display: flex;flex-wrap:wrap;height: 660px;overflow-y: scroll !important;" >
-
-          <div *ngFor='let eve of shipmentList; let i= index' (click)='highlight_pre(i);toShipmentDetails(eve.key)'
-            [ngClass]="checkhighlight(i)==true ? 'shipmenth' : 'shipment'" 
-            style="height: 220px;width: 310px;margin-left: 20px;background-color: white;border-radius: 10px;border:1px solid black;padding: 10px;margin-top: 10px;display: flex;flex-direction: column;justify-content: center;">
-            <div class="shipID" style="font-weight: 700;">
-              Shipment ID:
-            </div>
-            <div class="data">
-              {{eve['shipID']}}
-            </div>
-            <div class="orderDate" style="font-weight: 700;">
-              Order Date: 
-            </div>
-            <div class="data">
-              {{eve['OrderDate'] | date : 'dd/MM/yyyy'}}
-            </div>
-            <div class="ETA" style="font-weight: 700;">
-              ETA : 
-            </div>
-            <div class="data">
-              {{eve['ETA'] | date : 'dd/MM/yyyy'}}
-            </div>
-            <div class="Expiry" style="font-weight: 700;">
-              Due Date: 
-            </div>
-            <div class="data">
-              {{eve['DueDate'] | date : 'dd/MM/yyyy'}}
-            </div>
-            <div class="Expiry" style="font-weight: 700;">
-              Status:
-            </div>
-            <div class="data">
-              Incoming
-            </div>
+          <div class="conf">
+            <ion-button class="conf" (click)="upload()" shape="round"> Confirm</ion-button>
+          </div>
+          <div class="upload">
+            <div class="txt">Upload Shipment Details</div>
+            <ion-button class="upB" shape="round">Upload <input #uploadEl (change)="changeListener($event)"
+                style='position:absolute;height:100%;width:100%;z-index:1000;opacity: 0;top:0;left:0;' type="file">
+            </ion-button>
           </div>
         </div>
       </div>
-      <div class="mostR" style="width: 200px;background-color: blueviolet;height: 800px;">
-        <div class="instruction" style="padding: 10px;margin-left: 20px;width: 160px;color: white;" *ngIf="counter >0">
-          <p>{{[counter]}} items have been selected</p>
-        </div>
-        <div class="buttons" *ngIf="counter >0" style="margin-top: 50px;">
-          <div class="dispatchButton"
-            style="width: 160px;height: 40px;border-radius: 10px;background-color: violet;margin-left: 15px;display: flex;align-items: center;justify-content: center;font-size: 20px;margin-top: 20px;">
-            Dispatch
+        <div class="table"
+          style="border: 1px solid black;margin-top: 15px;width: 800px;overflow-x: scroll;padding: 10px;">
+
+          <div style='display:flex;align-items: center;border: 1px solid #eeeeee;' *ngFor="let vertical of table">
+
+            <div style='text-align: center;border:1px solid #eeeeee;'
+              *ngFor='let horizontal of vertical; let i = index'>
+
+              <div *ngIf='i == 1' style='width:150px;'> {{horizontal}}</div>
+
+
+              <div *ngIf='i != 1' style='width:50px;'> {{horizontal}}</div>
+            </div>
+
           </div>
-          <div class="editButton"
-            style="width: 160px;height: 40px;border-radius: 10px;background-color: violet;margin-left: 15px;display: flex;align-items: center;justify-content: center;font-size: 20px;margin-top: 20px;">
-            Delete
-          </div>
-          <div class="cancel" (click)="cancel()"  style="width: 160px;height: 40px;border-radius: 10px;background-color: violet;margin-left: 15px;display: flex;align-items: center;justify-content: center;font-size: 20px;margin-top: 20px;">
-            Cancel
-          </div>
-          
+
         </div>
       </div>
-    </div>
   </div>
-
+  </div>
 </ion-content>

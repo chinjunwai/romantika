@@ -1,0 +1,45 @@
+<ion-content>
+  <div style="display: flex;align-items: center;justify-content: center;width: 100vw;">
+  <div style="width: 1000px;display: flex;justify-content: center;height: 800px;">
+
+    <div class="wholePage">
+
+      <div class="staffTitle">
+        <div class="title">NEW BRANCH</div>
+        <ion-icon class="back" name="close-outline" (click)="backToBranch()"></ion-icon>
+      </div>
+
+      <div class="content">
+        <div class="keyIn">
+          <div class="input">
+            <div class="id">Branch ID :</div>
+            <ion-input class="inId" [(ngModel)]="branch.bID" placeholder="ID"></ion-input>
+          </div>
+          <div class="input2">
+            <div class="name">Name :</div>
+            <ion-input class="inname" [(ngModel)]="branch.name" placeholder="Branch Name"></ion-input>
+          </div>
+          <div class="input3">
+            <div class="mail">Login Mail :</div>
+            <ion-input class="mail1" [(ngModel)]="branch.mail" placeholder="Mail"></ion-input>
+          </div>
+          <div class="input4">
+            <div class="pass">Password :</div>
+            <ion-input class="pass1" [(ngModel)]="branch.pass" type="Password" placeholder="Password"></ion-input>
+          </div>
+
+        </div>
+
+        <div class="button">
+          <div class="can">
+            <ion-button class="cancel" shape="round" (click)="backToBranch()"> Cancel</ion-button>
+          </div>
+          <div class="upload">
+            <ion-button class="upB" (click)="create()" shape="round">Create</ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</ion-content>
