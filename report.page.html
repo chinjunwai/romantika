@@ -181,7 +181,9 @@
             <div *ngIf='item.highlight==true'>
               <div *ngFor='let eve of item.remarks' style='width:100%;display:flex;justify-content: flex-start;align-items: center;background-color: honeydew;border: 0.5px solid lightgray;margin-bottom: 13px;'>
                 <img style='height:200px;width:200px;object-fit: cover;margin: 5px;' src={{eve.photo.imagec}} alt="">
-                <div style="padding-left: 15px;width: 400px;">{{eve.remark}}</div>
+                <div style="padding: 15px;">Remark : 
+                <div style="width: 400px;padding-top: 10px;">{{eve.remark}}</div>
+                </div>
               </div>
             </div>
           </div>
